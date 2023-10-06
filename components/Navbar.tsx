@@ -7,6 +7,7 @@ import ModeToggle from "@/components/mode-toggle";
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import MobileSidebar from "./MobileSidebar";
 
 const font = Dela_Gothic_One({
   weight: "400",
@@ -15,16 +16,22 @@ const font = Dela_Gothic_One({
 
 const Navbar = () => {
   return (
-    <nav className="fixed w-full z-50 flex justify-between items-center border-primary/10 bg-secondary px-2 py-4">
-      <Menu className="block md:hidden cursor-pointer" size={35} />
+    <nav className="fixed w-full z-50 flex justify-between items-center border border-primary/10 bg-secondary px-2 py-4">
+      <MobileSidebar />
       <Link href={"/"}>
-        <h1 className={cn("text-4xl text-primary font-bold", font.className)}>
-          Fri<span className="text-blue-400">AI</span>
+        <h1
+          className={cn(
+            "text-4xl text-primary font-bold AI-color",
+            font.className
+          )}
+        >
+          <span className="AI-header-color">Fri</span>
+          <span className="text-slate-800 dark:text-white">AI</span>
         </h1>
       </Link>
 
       <div className="flex items-center gap-6">
-        <Button size="sm" className="text-white" variant={"premium"}>
+        <Button size="sm" className="text-white" variant={"buttonpremium"}>
           Upgrade
           <Sparkle className="w-4 h-4 fill-white ml-2" />
         </Button>

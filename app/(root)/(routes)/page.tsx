@@ -1,7 +1,15 @@
+import Searchbar from "@/components/Searchbar";
+import Categories from "@/components/Categories";
+import prismadb from "@/lib/prismaDb";
 
-export default function Home() {
+export default async function Home() {
+  const category = await prismadb.category.findMany() 
+
+  
   return (
-    <main>
+    <main className="h-full pt-16">
+        <Searchbar />
+        <Categories data={category}/>
     </main>
   )
 }
